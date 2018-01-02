@@ -3,7 +3,11 @@ pipeline {
   stages {
     stage('ssh') {
       steps {
-        echo 'hoge'
+        sshagent(['deployment']) {
+          sh 'ls -l'
+          sh 'pwd'
+          sh 'env'
+        }
       }
     }
   }
