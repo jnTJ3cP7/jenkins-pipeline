@@ -2,7 +2,9 @@ pipeline {
   agent any
   stages {
     stege('ssh') {
-      echo 'hoge'
+      steps {
+        echo 'hoge'
+      }
     }
   }
 }
