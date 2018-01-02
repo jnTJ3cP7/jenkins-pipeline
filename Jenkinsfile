@@ -7,6 +7,10 @@ pipeline {
           sh 'ls -l'
           sh 'pwd'
           sh 'env'
+
+          sh "ssh -p 22 root@app-server 'ls -l'"
+          sh "ssh -p 22 root@app-server 'pwd'"
+          sh "ssh -p 22 root@app-server 'env'"
         }
       }
     }
