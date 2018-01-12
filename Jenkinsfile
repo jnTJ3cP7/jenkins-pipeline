@@ -16,7 +16,7 @@
 //     }
 //   }
 // }
-@Library('hogee')
+@Library('hogee')_
 tess()
 // import com.co.Example
 // def pras = 'HHH\nFFF'
