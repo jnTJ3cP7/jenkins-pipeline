@@ -1,22 +1,23 @@
-pipeline {
-  agent any
-  stages {
-    stage('ssh') {
-      steps {
-        sshagent(['deployment']) {
-          sh 'ls -l'
-          sh 'pwd'
-          sh 'env'
+// pipeline {
+//   agent any
+//   stages {
+//     stage('ssh') {
+//       steps {
+//         sshagent(['deployment']) {
+//           sh 'ls -l'
+//           sh 'pwd'
+//           sh 'env'
 
-          sh "ssh -p 22 root@app-server 'ls -l'"
-          sh "ssh -p 22 root@app-server 'pwd'"
-          sh "ssh -p 22 root@app-server 'env'"
-        }
-      }
-    }
-  }
-}
-// @Library('hogee')
+//           sh "ssh -p 22 root@app-server 'ls -l'"
+//           sh "ssh -p 22 root@app-server 'pwd'"
+//           sh "ssh -p 22 root@app-server 'env'"
+//         }
+//       }
+//     }
+//   }
+// }
+@Library('hogee')
+tess()
 // import com.co.Example
 // def pras = 'HHH\nFFF'
 // def strs() {
