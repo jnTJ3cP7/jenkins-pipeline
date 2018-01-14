@@ -3,8 +3,8 @@
 // import hudson.*
 // import hudson.model.*
 // import java.io.*
-// import java.nio.charset.StandardCharsets
-// import javax.xml.transform.stream.*
+import java.nio.charset.StandardCharsets
+import javax.xml.transform.stream.*
 import com.cloudbees.groovy.cps.NonCPS
 
 def call() {
@@ -35,7 +35,7 @@ def doNonScp() {
   }
   def job = ins.getItemByFullName(jobName, AbstractItem)
   def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
-  def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
+  def xmlStream = new ByteArrayInputStream( configXml.getBytes(StandardCharsets.UTF_8) )
 
   if (job) {
     job.updateByXml(new StreamSource(xmlStream))
