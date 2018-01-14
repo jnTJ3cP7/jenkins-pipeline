@@ -14,9 +14,10 @@ def call() {
           script {
               sh 'pwd'
               sh 'ls -ltra'
-              def job = jobb()
-              def stream = st()
-              doUpd(job, stream)
+              doNonScp()
+              // def job = jobb()
+              // def stream = st()
+              // doUpd(job, stream)
               sh 'pwd'
               sh 'ls -ltra'
           }
