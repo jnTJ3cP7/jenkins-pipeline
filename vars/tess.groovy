@@ -13,7 +13,8 @@ def call() {
               sh 'pwd'
               sh 'ls -ltra'
               def instance  = Jenkins.getInstance()
-              echo instance.class.name
+              def xmlStream = new ByteArrayInputStream( 'hogeeeeee'.getBytes() )
+              instance.createProjectFromXML('ex4', xmlStream)
               sh 'pwd'
               sh 'ls -ltra'
           }
