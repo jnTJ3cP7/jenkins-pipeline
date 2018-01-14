@@ -32,15 +32,16 @@ def doNonScp() {
     echo it.fullName
   }
   def job = ins.getItemByFullName(jobName, AbstractItem)
-  echo job.class.name
-  // def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
-  // def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
+  def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
+  def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
 
-  // if (job) {
-  //   job.updateByXml(xmlStream);
-  // }
-  // else {
-  //   ins.createProjectFromXML(jobName, xmlStream)
-  // }
+  if (job) {
+    echo job.class.name
+    // job.updateByXml(xmlStream);
+  }
+  else {
+    echo 'fuga'
+    // ins.createProjectFromXML(jobName, xmlStream)
+  }
 
 }
