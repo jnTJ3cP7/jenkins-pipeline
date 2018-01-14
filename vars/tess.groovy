@@ -6,6 +6,7 @@ def call() {
 
   pipeline {
     agent any
+    options { timestamps() }
     stages {
       stage ('jojojo') {
         steps {
