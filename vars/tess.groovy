@@ -29,5 +29,5 @@ def doNonScp() {
   def instance  = Jenkins.getInstance()
   def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
   def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
-  instance.createProjectFromXML('ex7', xmlStream)
+  instance.createProjectFromXML('ex8', xmlStream)
 }
