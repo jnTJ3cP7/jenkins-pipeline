@@ -15,8 +15,8 @@ def call() {
               sh 'ls -ltra'
               def instance  = Jenkins.getInstance()
               def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
-              def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
-              instance.createProjectFromXML('ex5', xmlStream)
+              // def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
+              instance.createProjectFromXML('ex6', new ByteArrayInputStream( configXml.getBytes() ))
               sh 'pwd'
               sh 'ls -ltra'
           }
