@@ -1,14 +1,8 @@
-// import jenkins.*
-// import jenkins.model.*
-// import hudson.*
-// import hudson.model.*
-// import java.io.*
 import java.nio.charset.StandardCharsets
 import javax.xml.transform.stream.*
 import com.cloudbees.groovy.cps.NonCPS
 
 def call() {
-
 
   pipeline {
     agent any
