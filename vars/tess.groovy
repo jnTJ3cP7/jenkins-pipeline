@@ -28,7 +28,11 @@ def call() {
 def doNonScp() {
   def jobName = 'ex8'
   def ins = Jenkins.getInstance()
-  // def job = ins.getItemByFullName(jobName, AbstractItem)
+  ins.getAllItems(AbstractItem).each {
+    echo it.fullName
+  }
+  def job = ins.getItemByFullName(jobName, AbstractItem)
+  echo job.class.name
   // def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
   // def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
 
@@ -38,8 +42,5 @@ def doNonScp() {
   // else {
   //   ins.createProjectFromXML(jobName, xmlStream)
   // }
-  ins.getAllItems(AbstractItem).each {
-    echo it.fullName
-  }
 
 }
