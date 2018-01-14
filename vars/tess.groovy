@@ -1,4 +1,6 @@
 import jenkins.model.*
+import com.cloudbees.hudson.plugins.modeling.*
+import com.cloudbees.hudson.plugins.modeling.impl.jobTemplate.*
 import com.cloudbees.groovy.cps.NonCPS
 
 def call() {
