@@ -10,9 +10,11 @@ def call() {
         steps {
           echo params.ver
           script {
+              sh 'pwd'
               sh 'ls -ltra'
               def instance  = Jenkins.getInstance()
-              echo instance.class.className
+              echo instance.class.name
+              sh 'pwd'
               sh 'ls -ltra'
           }
         }
