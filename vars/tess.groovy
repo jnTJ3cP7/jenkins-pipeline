@@ -1,4 +1,5 @@
 import jenkins.model.*
+import com.cloudbees.groovy.cps.NonCPS
 
 def call() {
 
@@ -13,10 +14,7 @@ def call() {
           script {
               sh 'pwd'
               sh 'ls -ltra'
-              def instance  = Jenkins.getInstance()
-              def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
-              // def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
-              instance.createProjectFromXML('ex6', new ByteArrayInputStream( configXml.getBytes() ))
+              doNonScp()
               sh 'pwd'
               sh 'ls -ltra'
           }
@@ -24,4 +22,12 @@ def call() {
       }
     }
   }
+}
+
+@NonCPS
+def doNonScp() {
+  def instance  = Jenkins.getInstance()
+  def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
+  def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
+  instance.createProjectFromXML('ex7', xmlStream)
 }
