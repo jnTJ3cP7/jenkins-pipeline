@@ -38,8 +38,10 @@ def doNonScp() {
   def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
 
   if (job) {
-    echo job.class.name
-    job.updateByXml(xmlStream)
+    // echo job.class.name
+    def template = InstanceFromJobTemplate.from(job)
+    echo template.class.name
+    // job.updateByXml(xmlStream)
   }
   else {
     echo 'fuga'
@@ -47,21 +49,21 @@ def doNonScp() {
   }
 }
 
-@NonCPS
-def jobb() {
-  def jobName = 'ex8'
-  def ins = Jenkins.getInstance()
-  return job = ins.getItemByFullName(jobName, AbstractItem)
-}
+// @NonCPS
+// def jobb() {
+//   def jobName = 'ex8'
+//   def ins = Jenkins.getInstance()
+//   return job = ins.getItemByFullName(jobName, AbstractItem)
+// }
 
-@NonCPS
-def st() {
-  def ins = Jenkins.getInstance()
-  def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
-  return xmlStream = new ByteArrayInputStream( configXml.getBytes() )
+// @NonCPS
+// def st() {
+//   def ins = Jenkins.getInstance()
+//   def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
+//   return xmlStream = new ByteArrayInputStream( configXml.getBytes() )
 
-}
+// }
 
-def doUpd(job, stream) {
-  job.updateByXml(stream)
-}
+// def doUpd(job, stream) {
+//   job.updateByXml(stream)
+// }
