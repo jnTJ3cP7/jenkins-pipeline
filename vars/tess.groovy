@@ -6,7 +6,10 @@ def call() {
 
   pipeline {
     agent any
-    options { timestamps() }
+    options {
+      // timestamps()
+      disableConcurrentBuilds()
+    }
     stages {
       stage ('jojojo') {
         steps {
