@@ -37,7 +37,7 @@ def doNonScp() {
 
   if (job) {
     echo job.class.name
-    // job.updateByXml(xmlStream);
+    job.updateByXml(xmlStream)
   }
   else {
     echo 'fuga'
