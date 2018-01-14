@@ -1,6 +1,10 @@
+import jenkins.*
 import jenkins.model.*
-import com.cloudbees.hudson.plugins.modeling.*
-import com.cloudbees.hudson.plugins.modeling.impl.jobTemplate.*
+import hudson.*
+import hudson.model.*
+import java.io.*
+import java.nio.charset.StandardCharsets
+import javax.xml.transform.stream.*
 import com.cloudbees.groovy.cps.NonCPS
 
 def call() {
@@ -42,13 +46,13 @@ def doNonScp() {
 
   if (job) {
     // echo job.class.name
-    def template = InstanceFromJobTemplate.from(job)
-    echo template.class.name
-    // job.updateByXml(xmlStream)
+    // def template = InstanceFromJobTemplate.from(job)
+    // echo template.class.name
+    job.updateByXml(new StreamSource(xmlStream))
   }
   else {
     echo 'fuga'
-    // ins.createProjectFromXML(jobName, xmlStream)
+    ins.createProjectFromXML(jobName, xmlStream)
   }
 }
 
