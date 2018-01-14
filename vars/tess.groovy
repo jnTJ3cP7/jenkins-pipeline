@@ -26,8 +26,17 @@ def call() {
 
 @NonCPS
 def doNonScp() {
-  def instance  = Jenkins.getInstance()
+  def jobName = 'ex8'
+  def ins = Jenkins.getInstance()
+  def job = ins.getItemByFullName(jobName, AbstractItem)
   def configXml = new File("${env.JENKINS_HOME}/config.xml.test").text
   def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
-  instance.createProjectFromXML('ex8', xmlStream)
+
+  if (job) {
+    job.updateByXml(xmlStream);
+  }
+  else {
+    ins.createProjectFromXML(jobName, xmlStream)
+  }
+
 }
